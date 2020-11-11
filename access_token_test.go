@@ -1,0 +1,21 @@
+package esi_test
+
+import (
+	"context"
+	"testing"
+
+	"github.com/maddiesch/esi"
+	"github.com/stretchr/testify/assert"
+)
+
+func TestVerifyAccessToken(t *testing.T) {
+	t.Skip()
+
+	t.Run("given a valid access token", func(t *testing.T) {
+		at := `eyJhbGciOiJSUzI1NiIsImtpZCI6IkpXVC1TaWduYXR1cmUtS2V5IiwidHlwIjoiSldUIn0.eyJzY3AiOlsicHVibGljRGF0YSIsImVzaS1jaGFyYWN0ZXJzdGF0cy5yZWFkLnYxIl0sImp0aSI6IjNlYjYxNDdlLTk5YjEtNGZhNC1iOWNiLTA4MTYwZDA5Y2U1NCIsImtpZCI6IkpXVC1TaWduYXR1cmUtS2V5Iiwic3ViIjoiQ0hBUkFDVEVSOkVWRToyMTE2NDI0NjE5IiwiYXpwIjoiZWUwZGY1NzlkNzRhNDBmZmEzMzVkNzM3ZDY0MWViNmMiLCJuYW1lIjoiTWFkaXNvbiBBaXZvIiwib3duZXIiOiJkeEpUcVc3cXdTZmJFNGVsa29UYjZrcTdvdEU9IiwiZXhwIjoxNjA0OTc4NTU4LCJpc3MiOiJsb2dpbi5ldmVvbmxpbmUuY29tIn0.bGELi7RTKzuXmfjTyJ3FwgYxRic17Gi5maBTmSQlnuPCE63zPYk6ymHQ8Ur4rIOdWeNA43PSdKV60T9uFJjNHX3_7Nw5xO55q2PlmHJe5er5ny2oUjmZCcNEqSssaUYgh9S_PQBBRBhHqoM37mMj7Ayqvqee-6i7R97m1JRjAw2lnw-wE_q6R3bHXThJC32DCJPsEBXCxV019kvtSCennc8jyz3cDx0isEJN4ML32HrAP-WoOmz06c7QZc1HSNZ8bq3UHIb52b45_t6HqAUfl28Qe58mFiyQzugCmIMwGPYx4HnmmID32qklIL8Fg03GTFHpjuW9Tsw2qujZnP-I-w`
+
+		err := esi.VerifyAccessTokenSignature(context.Background(), at)
+
+		assert.NoError(t, err)
+	})
+}
